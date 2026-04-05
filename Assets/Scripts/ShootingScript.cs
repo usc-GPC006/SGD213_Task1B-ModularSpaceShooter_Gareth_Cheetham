@@ -6,12 +6,9 @@ public class ShootingScript : MonoBehaviour
 
     [SerializeField]
     private GameObject bullet;
-
     private float lastFiredTime = 0f;
-
     [SerializeField]
     private float fireDelay = 1f;
-
     private float bulletOffset = 2f;
 
     void Start()
@@ -31,15 +28,9 @@ public class ShootingScript : MonoBehaviour
             if (CurrentTime - lastFiredTime > fireDelay)
             {
                 Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y + bulletOffset);
-
                 Instantiate(bullet, spawnPosition, transform.rotation);
-
                 lastFiredTime = CurrentTime;
             }
         }
     }
-
-    
-
-
 }

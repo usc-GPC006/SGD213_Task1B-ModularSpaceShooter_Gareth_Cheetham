@@ -3,7 +3,6 @@ using System.Collections;
 
 public class SpawnOverTimeScript : MonoBehaviour
 {
-
     // Object to spawn
     [SerializeField]
     private GameObject spawnObject;
@@ -17,7 +16,6 @@ public class SpawnOverTimeScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
         ourRenderer = GetComponent<Renderer>();
 
         // Stop our Spawner from being visible!
