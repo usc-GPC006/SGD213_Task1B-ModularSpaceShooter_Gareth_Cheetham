@@ -6,16 +6,20 @@ public class DamageOnCollision : DetectCollisionBase
 {
     [SerializeField]
     private int damageToDeal;
-
+    //Whenever there is a collision
     protected override void ProcessCollision(GameObject other)
     {
         base.ProcessCollision(other);
-        if (other.GetComponent<IHealth>() != null) {
+        //Check to see if the other object has health, if it does, deal damage to it and destroy this object
+        if (other.GetComponent<IHealth>() != null) 
+        {
             other.GetComponent<IHealth>().TakeDamage(damageToDeal);
-        } else {
+            Destroy(gameObject);
+        } 
+        //Otherwise, print the object name that doesn't have health
+        else 
+        {
             Debug.Log(other.name + " does not have an IHealth component");
         }
-
-        Destroy(gameObject);
     }
 }

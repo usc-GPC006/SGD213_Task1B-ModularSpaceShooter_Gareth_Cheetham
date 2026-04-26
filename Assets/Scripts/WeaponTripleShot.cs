@@ -10,8 +10,6 @@ public class WeaponTripleShot : WeaponBase {
     public override void Shoot() {
         // get the current time
         float currentTime = Time.time;
-
-        print("Shoot triple shot");
         // if enough time has passed since our last shot compared to our fireDelay, spawn our bullet
         if (currentTime - lastFiredTime > fireDelay) {
             float x = -0.5f;
