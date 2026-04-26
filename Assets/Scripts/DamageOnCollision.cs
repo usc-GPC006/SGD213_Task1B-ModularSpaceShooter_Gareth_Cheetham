@@ -14,7 +14,9 @@ public class DamageOnCollision : DetectCollisionBase
         if (other.GetComponent<IHealth>() != null) 
         {
             other.GetComponent<IHealth>().TakeDamage(damageToDeal);
+            Debug.Log("Damage has been dealt to: " + other.name);
             Destroy(gameObject);
+            Debug.Log(gameObject.name + "has been destroyed due to collision.");
         } 
         //Otherwise, print the object name that doesn't have health
         else 

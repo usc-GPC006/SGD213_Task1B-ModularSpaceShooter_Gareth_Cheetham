@@ -21,6 +21,11 @@ public class PlayerHealth : MonoBehaviour, IHealth
     /// Heal handles the functionality of receiving health
     /// </summary>
     /// <param name="healingAmount">The amount of health to gain, this value should be positive</param>
+    private void upDateHealthUI()
+    {
+        UIManager.instance.UpdatePlayerHealthSlider((float)currentHealth / (float)maxHealth);
+    }
+    
     public void Heal(int healingAmount)
     {
         currentHealth += healingAmount;
@@ -28,6 +33,8 @@ public class PlayerHealth : MonoBehaviour, IHealth
         {
             currentHealth = maxHealth;
         }
+        upDateHealthUI();
+        // UIManager.instance.UpdatePlayerHealthSlider((float)currentHealth / (float)maxHealth);
     }
 
     /// <summary>
@@ -37,8 +44,8 @@ public class PlayerHealth : MonoBehaviour, IHealth
     public void TakeDamage(int damageAmount)
     {
         currentHealth -= damageAmount;
-
-        UIManager.instance.UpdatePlayerHealthSlider((float)currentHealth / (float)maxHealth);
+        upDateHealthUI();
+        // UIManager.instance.UpdatePlayerHealthSlider((float)currentHealth / (float)maxHealth);
 
         if (currentHealth <= 0)
         {
