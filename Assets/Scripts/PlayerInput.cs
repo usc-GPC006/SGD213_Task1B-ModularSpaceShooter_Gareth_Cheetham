@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 /// <summary>
@@ -8,10 +7,8 @@ using UnityEngine;
 /// </summary>
 public class PlayerInput : MonoBehaviour
 {
-
     // local references
-    private PlayerMovement playerMovement;
-
+    private PlayerMovementScript playerMovement;
     private WeaponBase weapon;
     public WeaponBase Weapon
     {
@@ -28,32 +25,32 @@ public class PlayerInput : MonoBehaviour
 
     void Start()
     {
-        playerMovement = GetComponent<PlayerMovement>();
+        playerMovement = GetComponent<PlayerMovementScript>();
         weapon = GetComponent<WeaponBase>();
     }
 
     void Update()
     {
-        // read our horizontal input axis
+        // Read our horizontal input axis
         float horizontalInput = Input.GetAxis("Horizontal");
-        // if movement input is not zero
+        // If movement input is not zero
         if (horizontalInput != 0.0f)
         {
-            // ensure our playerMovementScript is populated to avoid errors
+            // Ensure our playerMovementScript is populated to avoid errors
             if (playerMovement != null)
             {
-                // pass our movement input to our playerMovementScript
+                // Pass our movement input to our playerMovementScript
                 playerMovement.MovePlayer(horizontalInput * Vector2.right);
             }
         }
 
-        // if we press the Fire1 button
+        // If we press the Fire1 button
         if (Input.GetButton("Fire1"))
         {
-            // if our shootingScript is populated
+            // If our shootingScript is populated
             if (weapon != null)
             {
-                // tell shootingScript to shoot
+                // Tell shootingScript to shoot
                 weapon.Shoot();
             }
         }

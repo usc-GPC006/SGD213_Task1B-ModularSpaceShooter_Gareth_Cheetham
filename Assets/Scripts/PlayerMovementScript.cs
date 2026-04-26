@@ -17,9 +17,10 @@ public class PlayerMovementScript : MonoBehaviour
     }
    
     // Update is called once per frame
-    public void MovePlayer(float HorizontalInput)
+    public void MovePlayer(Vector2 HorizontalInput)
     {
         Vector2 ForceToAdd = Vector2.right * HorizontalInput * f_horPlayAccel * Time.deltaTime;
         OURRigidbody.AddForce(ForceToAdd);
+        // OURRigidbody.AddForce(HorizontalInput);
     }
 }
