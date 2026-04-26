@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour {
 
     // enemyAcceleration indicates how fast the enemy accelerates
     [SerializeField]
-    private float enemyAcceleration = 5000f;
+    private float enemyAcceleration;
 
     // local references
     private Rigidbody2D ourRigidbody;
