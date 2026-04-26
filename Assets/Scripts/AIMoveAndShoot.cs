@@ -9,12 +9,12 @@ public class AIMoveAndShoot : MonoBehaviour {
 
     // local references
     private EnemyMovement enemyMovement;
-    private WeaponBase weapon;
+    private IWeapon weapon;
 
     void Start() {
         // populate our local references
         enemyMovement = GetComponent<EnemyMovement>();
-        weapon = GetComponent<WeaponBase>();
+        weapon = GetComponent<IWeapon>();
 
         // get a random direction between South-East and South-West
         float x = Random.Range(-0.5f, 0.5f);

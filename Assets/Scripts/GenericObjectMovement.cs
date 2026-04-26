@@ -28,7 +28,7 @@ public class GenericObjectMovement : MonoBehaviour
     void Start()
     {
         ourRigidbody = GetComponent<Rigidbody2D>();
-        if (direction == Vector2.zero)  //If the bullet has no transform
+        if (direction == Vector2.zero)  //If the bullet has no transform - This is needed for angled shots from the triple shot
         {
                     direction = moveUp ? Vector2.up : Vector2.down;  //Look at moveUp bool, make directions positive or negative accordingly
 
