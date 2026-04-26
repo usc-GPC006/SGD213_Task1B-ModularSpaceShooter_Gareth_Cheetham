@@ -8,7 +8,7 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     // local references
-    private PlayerMovementScript playerMovement;
+    private EngineBase playerMovement;
     private WeaponBase weapon;
     public WeaponBase Weapon
     {
@@ -25,7 +25,7 @@ public class PlayerInput : MonoBehaviour
 
     void Start()
     {
-        playerMovement = GetComponent<PlayerMovementScript>();
+        playerMovement = GetComponent<EngineBase>();
         weapon = GetComponent<WeaponBase>();
     }
 
@@ -40,17 +40,17 @@ public class PlayerInput : MonoBehaviour
             if (playerMovement != null)
             {
                 // Pass our movement input to our playerMovementScript
-                playerMovement.MovePlayer(horizontalInput * Vector2.right);
+                playerMovement.Accelerate(horizontalInput * Vector2.right);
             }
         }
 
         // If we press the Fire1 button
         if (Input.GetButton("Fire1"))
         {
-            // If our shootingScript is populated
+            // If our WeaponBase is populated
             if (weapon != null)
             {
-                // Tell shootingScript to shoot
+                // Tell WeaponBase to shoot
                 weapon.Shoot();
             }
         }
